@@ -2,12 +2,6 @@
 
 open System
 
-(* half-organized TODOs:
-- need to record what a star unlocks
-    - e.g. the ship star in DDD unlocks 2nd bowser pipe opening (or whatever)
-
-*)
-
 type StandardCourse =
     | BobOmbBattlefield
     | JollyRogerBay
@@ -78,60 +72,6 @@ type SecretStage =
         | VanishCapUnderTheMoat -> "Vanish Cap Under the Moat"
         | CavernOfTheMetalCave -> "Cavern of the Metal Cap"
     
-
-/// Each of the 15 (?) standard courses have 6 "regular" stars
-type StarNumber = One | Two | Three | Four | Five | Six
-
-// 
-type StandardCourseStar =
-    | BehindChainChompsGate
-    | BigBobOmbOnTheSummit
-    
-    member this.CourseConnection: StandardCourse * StarNumber =
-        match this with
-        | BigBobOmbOnTheSummit -> BobOmbBattlefield, One
-        | BehindChainChompsGate -> BobOmbBattlefield, Six
-        
-    member this.Name =
-        match this with
-        | BehindChainChompsGate -> "Behind Chain Chomp's Gate"
-        | BigBobOmbOnTheSummit -> "Big Bob-omb on the Summit"
-    
-    
-type SpeedrunningRestriction =
-    | NoBlj
-
-type SpeedrunningCategory =
-    | ZeroStar
-    | OneStar
-    | SixteenStar
-    | FiftyStar
-    | SeventyStar
-    | OneTwentyStar
-    
-    member this.StarRequirement: int =
-        match this with
-        | ZeroStar -> 0
-        | OneStar -> 1
-        | SixteenStar -> 16
-        | FiftyStar -> 50
-        | SeventyStar -> 70
-        | OneTwentyStar -> 120
-        
-    member this.Restrictions: SpeedrunningRestriction list =
-        raise (NotImplementedException("lazy"))
-    
-    member this.Name =
-        let commonName = sprintf "%i-Star"
-        
-        match this with
-        | ZeroStar -> commonName 0
-        | OneStar -> commonName 1
-        | SixteenStar -> commonName 16
-        | FiftyStar -> commonName 50
-        | SeventyStar -> commonName 70
-        | OneTwentyStar -> commonName 120
-
 type BowserStage =
     | BitDW
     | BitFS
@@ -149,24 +89,94 @@ type BowserStage =
         | BitFS -> "Bowser in the Fire Sea"
         | BitS -> "Bowser in the Sky"
 
+/// Each of the 15 (?) standard courses have 6 "regular" stars
+type StarNumber = One | Two | Three | Four | Five | Six
+
+
+// 
+type StandardCourseStar =
+    // BoB
+    | BigBobOmbOnTheSummit // 1
+    | FootraceWithKoopaTheQuick // 2
+    | ShootIntoTheWildSky // 3
+    | FindThe8RedCoins // 4
+    | MarioWingsToTheSky // 5
+    | BehindChainChompsGate // 6
+    
+    
+    // Whomp's
+    | ChipOffWhompsBlock // 1
+    | ToTheTopOfTheFortress // 2
+    | ShootIntoTheWildBlue // 3
+    | RedCoinsOnTheFloatingIsle // 4
+    | FallOntoTheCagedIsland // 5
+    | BlastAwayTheWall // 6
+    
+    // JRB
+    
+    // CCM
+    | SlipSlidinAway // 1
+    | LilPenguinLost // 2
+    | BigPenguinRace // 3
+    | WallKicksWillWork // 6
+    
+    // SSL
+    | InTheTalonsOfTheBigBird // 1
+    | ShiningAtopThePyramid // 2
+    
+    // LLL
+    | BoilTheBigBully // 1
+    | BullyTheBullies // 2
+    | EightCoinPuzzleWith15Pieces // 3
+    | RedHotLogRolling // 4
+    | HotFootItIntoTheVolcano // 5
+    | ElevatorTourInTheVolcano // 6
+    
+    // HMC
+    | AMazeingEmergencyExit // 5
+    | WatchForRollingRocks // 6
+    
+    // DDD
+    | BoardBowsersSub
+    
+    member this.CourseConnection: StandardCourse * StarNumber =
+        match this with
+        | BigBobOmbOnTheSummit -> BobOmbBattlefield, One
+        | BehindChainChompsGate -> BobOmbBattlefield, Six
+        
+    member this.Name =
+        match this with
+        | BehindChainChompsGate -> "Behind Chain Chomp's Gate"
+        | BigBobOmbOnTheSummit -> "Big Bob-omb on the Summit"
+
+type ToadStar =
+    | HMCToad
+
+type Star =
+    | ToadStar of ToadStar
+    | Standard of StandardCourseStar
+    | HundredCoin of StandardCourse
+    | StandardAndHundred of StandardCourseStar * StandardCourse 
+    | SecretStar of SecretStage
+    | BowserReds of BowserStage
+
 type Cap = Wing | Metal | Vanish
     
 type Obtainable =
     | Cap of Cap
     | BowserKey of stage: BowserStage
 
-type StarType =
-    | Standard of StandardCourseStar
-    | HundredCoin of StandardCourse
-    | SecretStar of SecretStage
-    | BowserReds of BowserStage
 
 type CastleMovement =
     | FromStartToFrontDoor
-    | FromFrontDoorToBob
-    | FromBobTo
+    | FromFrontDoorToBobDoor
+    | FromBobDoorToBobPainting
+    | MIPsClipStuff
+    | BLJ50Stairway
+    | BLJ70Stairway
     
 type Cutscene =
+    | Opening
     | StarGet
     | SingleDeath
 
@@ -177,39 +187,27 @@ type TextSegment =
         match this with
         | LakituBridge -> raise (NotImplementedException("idk, like 3?"))
 
+[<Measure>] type Second
+
+/// This is what I'm calling things like "from turning N64 on to starting the game" and 
+type ScreenMovement =
+    | TurnOnSystemAndGetToMarioFace
+    | FromMarioFaceToStarSelect
+    
+    member this.MinimumTimeSpent: float<Second> =
+        match this with
+        | TurnOnSystemAndGetToMarioFace -> raise (NotImplementedException("untimed"))
+        | FromMarioFaceToStarSelect -> raise (NotImplementedException("untimed"))
+    
+type BowserSegment =
+    | JustGetToBowser of BowserStage
+    | GetToBowserWithReds of BowserStage
+    | FightBowser of BowserStage
+
 type Segment =
+    | ScreenMovement of ScreenMovement
     | CastleMovement of CastleMovement
     | Cutscene of Cutscene
     | Text of TextSegment
-    | Star of StarType
-
-type CategoryRoute =
-    SpeedrunningCategory * Segment list
-    
-let mySixteenStarRoute =
-    [ ]
-    
-type RouteValidationError =
-    | DoesNotMeetStarRequirement
-    | DisobeysCategoryConstraints
-    
-let validateRoute: Result<unit, RouteValidationError> =
-    raise (NotImplementedException("lazy"))
-    
-// tech ideas
-(*
-- graph DB?
-    - options: arango, orient, neo4j, custom?
-    - interface: Cypher via F#?
-    - thoughts:
-        - do I care more about the computation or the storage?
-            (triple store or property graph options)
-            
-- tech stack
-    F#?
-    TS stuff
-
-- related software
-    - autosplitter
-        doesn't work on linux
-*)
+    | Star of Star
+    | BowserSegment of BowserSegment

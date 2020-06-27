@@ -6,6 +6,10 @@
 
     <ItemGroup>
         <Compile Include="Core.fs" />
+        <Compile Include="Speedrunning.fs" />
+        <Compile Include="Speedrunner.fs" />
+        <Compile Include="MySpeedrunning.fs" />
+        <Content Include="notes.md" />
     </ItemGroup>
 
 </Project>
