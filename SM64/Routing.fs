@@ -1,7 +1,7 @@
 ﻿module SM64.Routing
 
 open System
-open SM64.Course
+open SM64.Courses
 open SM64.Stars
 
 type CastleMovement =

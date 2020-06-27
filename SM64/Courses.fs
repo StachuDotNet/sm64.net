@@ -1,4 +1,4 @@
-module SM64.Course
+module SM64.Courses
 
 open System
 
@@ -18,6 +18,9 @@ type StandardCourse =
     | TinyHugeIsland
     | TickTockClock
     | RainbowRide
+
+let courseList = DiscriminatedUnionHelper.GetAllUnionCases<StandardCourse>()
+
     
 type EntryRequirement =
     /// At least "n" stars are required to open the door normally

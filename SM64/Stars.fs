@@ -1,6 +1,6 @@
 module SM64.Stars
 
-open SM64.Course
+open SM64.Courses
 
 /// Each of the 15 (?) standard courses have 6 "regular" stars
 type StarNumber = One | Two | Three | Four | Five | Six
@@ -49,7 +49,8 @@ type StandardCourseStar =
     
     // DDD
     | BoardBowsersSub
-    
+
+let standardStarList = DiscriminatedUnionHelper.GetAllUnionCases<StandardCourseStar>()
     
 type StandardCourseStarInfo =
     { Name: string
