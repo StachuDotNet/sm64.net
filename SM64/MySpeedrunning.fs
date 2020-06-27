@@ -1,8 +1,12 @@
 module SM64.MySpeedrunning
 
-open SM64.Core
+open System
+open SM64.Routing
+open SM64.Course
+open SM64.Stars
 open SM64.Speedrunner
 open SM64.Speedrunning
+
 
 let standardIntro =
     [ ScreenMovement TurnOnSystemAndGetToMarioFace
@@ -17,7 +21,7 @@ let mySixteenStarRoute: Segment list =
       // star #1: BoB
       Star (Standard BehindChainChompsGate) // note: don't *quite* like the interface here...
       
-      // star #2-7: Whomp's
+      // star #2-8: Whomp's
       Star (StandardAndHundred (RedCoinsOnTheFloatingIsle, WhompsFortress))
       Star (Standard ChipOffWhompsBlock)
       Star (Standard ToTheTopOfTheFortress)
@@ -25,15 +29,14 @@ let mySixteenStarRoute: Segment list =
       Star (Standard FallOntoTheCagedIsland)
       Star (Standard BlastAwayTheWall)
       
-      // star #8, Bowser #1
+      // star #9, Bowser #1
       BowserSegment (GetToBowserWithReds BitDW)
       
-      // star #9, 10: SSL
+      // star #10, 11: SSL
       Star (Standard InTheTalonsOfTheBigBird)
       Star (Standard ShiningAtopThePyramid)
       
-      // star #11-12: LLL
-      Star (Standard BoilTheBigBully)
+      // star #12: LLL
       Star (Standard EightCoinPuzzleWith15Pieces)
       
       // star #13-15: HMC and toad
@@ -62,6 +65,7 @@ let mySixteenStarRoute: Segment list =
       // bowser 3, get to bowser, then fight him
       BowserSegment (JustGetToBowser BitS)
       BowserSegment (FightBowser BitS) ]
+
 
 let stachuSpeedrunner: Speedrunner =
     { Name = "Stachu Korick"

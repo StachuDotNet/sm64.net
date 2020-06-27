@@ -1,7 +1,7 @@
 module SM64.Speedrunning
 
 open System
-open SM64.Core
+open SM64.Routing
 
 type SpeedrunningCategoryRestriction =
     | NoBlj
@@ -13,29 +13,40 @@ type SpeedrunningCategory =
     | FiftyStar
     | SeventyStar
     | OneTwentyStar
+
+type SpeedrunningCategoryMetadata =
+    { Name: string
+      MinimumStarCount: int
+      Restrictions: SpeedrunningCategoryRestriction list }
+
+let getSpeedrunningCategoryMetadata category =
+    let commonName = sprintf "%i-Star"
     
-    member this.StarRequirement: int =
-        match this with
-        | ZeroStar -> 0
-        | OneStar -> 1
-        | SixteenStar -> 16
-        | FiftyStar -> 50
-        | SeventyStar -> 70
-        | OneTwentyStar -> 120
-        
-    member this.Restrictions: SpeedrunningCategoryRestriction list =
-        raise (NotImplementedException("lazy"))
-    
-    member this.Name =
-        let commonName = sprintf "%i-Star"
-        
-        match this with
-        | ZeroStar -> commonName 0
-        | OneStar -> commonName 1
-        | SixteenStar -> commonName 16
-        | FiftyStar -> commonName 50
-        | SeventyStar -> commonName 70
-        | OneTwentyStar -> commonName 120
+    match category with
+    | ZeroStar ->
+        { Name = commonName 0
+          MinimumStarCount = 0
+          Restrictions = [] }
+    | OneStar ->
+        { Name = commonName 1
+          MinimumStarCount = 1
+          Restrictions = [] }
+    | SixteenStar ->
+        { Name = commonName 16
+          MinimumStarCount = 16
+          Restrictions = [] }
+    | FiftyStar ->
+        { Name = commonName 50
+          MinimumStarCount = 50
+          Restrictions = [] }
+    | SeventyStar ->
+        { Name = commonName 70
+          MinimumStarCount = 70
+          Restrictions = [] }
+    | OneTwentyStar ->
+        { Name = commonName 120
+          MinimumStarCount = 120
+          Restrictions = [] }
 
 type CategoryRoute =
     SpeedrunningCategory * Segment list

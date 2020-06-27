@@ -20,3 +20,17 @@ half-organized TODOs:
 - related software
     - autosplitter
         doesn't work on linux
+
+
+// TODO: do the japan version have "abbreviations"?
+
+
+deal with alternative abbreviations (e.g. SML)
+
+
+
+some tests to write:
+- correct number of stars
+- correct number of courses
+- random validators for routes
+- 

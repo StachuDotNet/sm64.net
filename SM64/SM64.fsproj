@@ -5,7 +5,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Core.fs" />
+        <Compile Include="Prelude.fs" />
+        <Compile Include="Meta.fs" />
+        <Compile Include="Courses.fs" />
+        <Compile Include="Stars.fs" />
+        <Compile Include="Routing.fs" />
         <Compile Include="Speedrunning.fs" />
         <Compile Include="Speedrunner.fs" />
         <Compile Include="MySpeedrunning.fs" />
