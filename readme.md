@@ -36,3 +36,5 @@ now: F#, Expecto
 later:
 - Fable? Giraffe? Elmish?
 - autosplitter integration? speedrun.com integration? twitch integration?
+
+I develop in Jetbrains Rider, but VS Code or Visual Studio should also run things fine.
