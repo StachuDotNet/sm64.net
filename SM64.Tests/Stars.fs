@@ -7,7 +7,7 @@ let starTests =
 
       test "There are 7 'standard' stars per course" {
           let numberOfKnownCourses = SM64.Courses.courseList.Length
-          let numberOfKnownStandardStars = SM64.Stars.standardStarList.Length
+          let numberOfKnownStandardStars = SM64.Stars.StandardCourseStar.standardStarList.Length
           
           let expectedNumberOfStandardCourses = numberOfKnownCourses * 7
           Expect.equal numberOfKnownStandardStars expectedNumberOfStandardCourses "Unexpected number of 'standard' stars"

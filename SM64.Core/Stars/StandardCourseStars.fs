@@ -1,6 +1,9 @@
-module SM64.Stars
+namespace SM64.Stars
 
+open SM64
 open SM64.Courses
+
+// TODO: fill this in...
 
 /// Each of the 15 (?) standard courses have 6 "regular" stars
 type StarNumber = One | Two | Three | Four | Five | Six
@@ -49,30 +52,22 @@ type StandardCourseStar =
     
     // DDD
     | BoardBowsersSub
-
-let standardStarList = DiscriminatedUnionHelper.GetAllUnionCases<StandardCourseStar>()
+    
     
 type StandardCourseStarInfo =
     { Name: string
       CourseConnection: StandardCourse * StarNumber }
 
-let getStandardCourseStarInfo standardCourseStar =
-    match standardCourseStar with
-    | BigBobOmbOnTheSummit ->
-        { Name = "Big Bob-omb on the Summit"
-          CourseConnection = BobOmbBattlefield, One }
-    | BehindChainChompsGate ->
-        { Name = "Behind Chain Chomp's Gate"
-          CourseConnection = BobOmbBattlefield, Six }
-    // lots more to do...
-    
-type ToadStar =
-    | HMCToad
 
-type Star =
-    | ToadStar of ToadStar
-    | Standard of StandardCourseStar
-    | HundredCoin of StandardCourse
-    | StandardAndHundred of StandardCourseStar * StandardCourse 
-    | SecretStar of SecretStage
-    | BowserReds of BowserStage
+module StandardCourseStar =
+    let standardStarList = DiscriminatedUnionHelper.GetAllUnionCases<StandardCourseStar>()
+    
+    let getStandardCourseStarInfo standardCourseStar =
+        match standardCourseStar with
+        | BigBobOmbOnTheSummit ->
+            { Name = "Big Bob-omb on the Summit"
+              CourseConnection = BobOmbBattlefield, One }
+        | BehindChainChompsGate ->
+            { Name = "Behind Chain Chomp's Gate"
+              CourseConnection = BobOmbBattlefield, Six }
+        // lots more to do...

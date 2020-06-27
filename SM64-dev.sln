@@ -1,8 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SM64", "SM64\SM64.fsproj", "{4D5D9122-B2AB-4784-B628-06F216D92631}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SM64.Core", "SM64.Core\SM64.Core.fsproj", "{4D5D9122-B2AB-4784-B628-06F216D92631}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SM64.Tests", "SM64.Tests\SM64.Tests.fsproj", "{5E5E0131-1D9B-45D0-A06E-BF0D1F32E227}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SM64.SpeedrunningData", "SM64.SpeedrunningData\SM64.SpeedrunningData.fsproj", "{6B977F8E-CB96-4474-9C78-5EFBDA9C3F2D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +20,9 @@ Global
 		{5E5E0131-1D9B-45D0-A06E-BF0D1F32E227}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E5E0131-1D9B-45D0-A06E-BF0D1F32E227}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E5E0131-1D9B-45D0-A06E-BF0D1F32E227}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B977F8E-CB96-4474-9C78-5EFBDA9C3F2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B977F8E-CB96-4474-9C78-5EFBDA9C3F2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B977F8E-CB96-4474-9C78-5EFBDA9C3F2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B977F8E-CB96-4474-9C78-5EFBDA9C3F2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -58,3 +58,8 @@ type RouteValidationError =
     
 let validateRoute: Result<unit, RouteValidationError> =
     raise (NotImplementedException("lazy"))
+    
+// from a shortlist of major achievements in a route (e.g. star-gets or bowser-fights),
+// we should be able to "fill in" the minor steps in between such as castle movement
+let fullRouteFromBasicSegments =
+    []

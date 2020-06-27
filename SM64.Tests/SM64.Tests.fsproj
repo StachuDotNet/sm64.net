@@ -17,7 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\SM64\SM64.fsproj" />
+      <ProjectReference Include="..\SM64.Core\SM64.Core.fsproj" />
     </ItemGroup>
 
 </Project>

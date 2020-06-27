@@ -20,7 +20,6 @@ type StandardCourse =
     | RainbowRide
 
 let courseList = DiscriminatedUnionHelper.GetAllUnionCases<StandardCourse>()
-
     
 type EntryRequirement =
     /// At least "n" stars are required to open the door normally
@@ -154,10 +153,16 @@ let getInfoForStandardCourse gameRelease standardCourse: StandardCourseInfo =
 let courseEntryRequirements (_course: StandardCourse) =
     raise (NotImplementedException("lazy"))
 
+/// There are a number of "secret stages"
+/// - each of these have 1 star - or 2 in the case of the secret slide
+/// - 3 of them have an associated "Cap" you can collect in them
 type SecretStage =
+    | PrincessSecretSlide
     | TowerOfTheWingCap
     | VanishCapUnderTheMoat
     | CavernOfTheMetalCave
+    | SecretAquarium
+    | Cloud
     
 type SecretStageInfo =
     { Name: string
@@ -171,19 +176,31 @@ let getSecretStageInfo gameRelease secretStage =
             match gameRelease with
             | US -> "Tower of the Wing Cap"
           Abbreviation = "ToTWC"
-          EntryRequirements = [] }
+          EntryRequirements = [MinimumStarCount 10] }
     | VanishCapUnderTheMoat ->
         { Name =
             match gameRelease with
             | US -> "Vanish Cap Under the Moat"
           Abbreviation = "CotMC"
-          EntryRequirements = [] }
+          EntryRequirements = [IsInBasement] } // ok well not "in basement" exactly
     | CavernOfTheMetalCave ->
         { Name =
             match gameRelease with
             | US -> "Cavern of the Metal Cap"
           Abbreviation = "VCutM"
+          EntryRequirements = [IsInBasement] }
+    | SecretAquarium ->
+        { Name =
+            match gameRelease with
+            | US -> "The Secret Aquarium"
+          Abbreviation = "SA"
           EntryRequirements = [] }
+    | Cloud ->
+        { Name =
+            match gameRelease with
+            | US -> "The Secret Aquarium"
+          Abbreviation = "SA" //?
+          EntryRequirements = [IsInBasement] }
 
     
 type BowserStage = BitDW | BitFS | BitS

@@ -8,11 +8,15 @@
         <Compile Include="Prelude.fs" />
         <Compile Include="Meta.fs" />
         <Compile Include="Courses.fs" />
-        <Compile Include="Stars.fs" />
+        <Compile Include="Stars\StarMeta.fs" />
+        <Compile Include="Stars\StandardCourseStars.fs" />
+        <Compile Include="Stars\ToadStars.fs" />
+        <Compile Include="Stars\MipsStars.fs" />
+        <Compile Include="Stars\SecretStageStars.fs" />
+        <Compile Include="Stars\AllStars.fs" />
         <Compile Include="Routing.fs" />
         <Compile Include="Speedrunning.fs" />
         <Compile Include="Speedrunner.fs" />
-        <Compile Include="MySpeedrunning.fs" />
         <Content Include="notes.md" />
     </ItemGroup>
 

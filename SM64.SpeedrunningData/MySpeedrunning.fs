@@ -1,12 +1,10 @@
 module SM64.MySpeedrunning
 
-open System
 open SM64.Routing
 open SM64.Courses
 open SM64.Stars
 open SM64.Speedrunner
 open SM64.Speedrunning
-
 
 let standardIntro =
     [ ScreenMovement TurnOnSystemAndGetToMarioFace
