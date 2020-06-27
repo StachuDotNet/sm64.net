@@ -45,7 +45,7 @@ let getInfoForStandardCourse gameRelease standardCourse: StandardCourseInfo =
     | BobOmbBattlefield ->
         { Name =
             match gameRelease with
-            | US -> "Bob-Omb Battlefield"
+            | US -> "Bob-omb Battlefield"
           CourseNumber = 1
           Abbreviation = "BoB"
           EntryRequirements = [] }
