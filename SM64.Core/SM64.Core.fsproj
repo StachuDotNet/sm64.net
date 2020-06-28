@@ -5,11 +5,11 @@
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-      <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+      <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-      <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+      <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     </PropertyGroup>
 
     <ItemGroup>
@@ -28,6 +28,7 @@
         <Compile Include="Routing.fs" />
         <Compile Include="Speedrunning.fs" />
         <Compile Include="Speedrunner.fs" />
+        <Compile Include="Recommendations.fs" />
         <Content Include="notes.md" />
     </ItemGroup>
 

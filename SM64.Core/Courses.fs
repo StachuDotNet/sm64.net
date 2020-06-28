@@ -1,6 +1,7 @@
 module SM64.Courses
 
 open System
+open SM64.Core
 
 type StandardCourse =
     | BobOmbBattlefield
@@ -169,12 +170,12 @@ type SecretStageInfo =
       Abbreviation: string
       EntryRequirements: EntryRequirement list }
     
-let getSecretStageInfo gameRelease secretStage =
+let getSecretStageInfo (gameRelease: SupportedGameRelease) secretStage =
     match secretStage with
     | PrincessSecretSlide ->
         { Name =
             match gameRelease with
-            | NA -> "Pricess Secret Slide"
+            | NA -> "Princess Secret Slide"
           Abbreviation = "PSS"
           EntryRequirements = [] }
     | TowerOfTheWingCap ->

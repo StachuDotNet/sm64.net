@@ -40,10 +40,14 @@ type BowserSegment =
     | GetToBowserWithReds of BowserStage
     | FightBowser of BowserStage
 
+type StarSegment =
+    | SingleStar of Star
+    | StarAnd100 of Star * StandardCourse
+
 type Segment =
     | ScreenMovement of ScreenMovement
     | CastleMovement of CastleMovement
     | Cutscene of Cutscene
     | Text of TextSegment
-    | Star of Star
+    | Star of StarSegment
     | BowserSegment of BowserSegment

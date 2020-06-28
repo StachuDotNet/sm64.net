@@ -50,6 +50,14 @@ type StandardCourseStar =
     | FreeFlyingFor8RedCoins // 5
     | PyramidPuzzle // 6
     
+    // HMC
+    | SwimmingBeastInTheCavern // 1
+    | ElevateFor8RedCoins // 2
+    | MetalHeadMarioCanMove // 3
+    | NavigatingTheToxicMaze // 4
+    | AMazeingEmergencyExit // 5
+    | WatchForRollingRocks // 6
+    
     // LLL
     | BoilTheBigBully // 1
     | BullyTheBullies // 2
@@ -58,13 +66,6 @@ type StandardCourseStar =
     | HotFootItIntoTheVolcano // 5
     | ElevatorTourInTheVolcano // 6
     
-    // HMC
-    // 1
-    // 2
-    // 3
-    // 4
-    | AMazeingEmergencyExit // 5
-    | WatchForRollingRocks // 6
     
     // DDD
     | BoardBowsersSub
@@ -87,3 +88,10 @@ module StandardCourseStar =
             { Name = "Behind Chain Chomp's Gate"
               CourseConnection = BobOmbBattlefield, Six }
         // lots more to do...
+        
+    let getStandardStarsWithInfo =
+        standardStarList
+        |> List.map(fun star ->
+            let starInfo = getStandardCourseStarInfo star
+            star, starInfo
+        )

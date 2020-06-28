@@ -1,4 +1,6 @@
-# SM64-dev
+# sm64.net dev
+
+(I don't know how sm64.net wasn't taken!)
 
 ## About
 
@@ -33,6 +35,7 @@ or StachuDotNet#9760 on Discord.
 ## Tech Stuff
 
 now: F#, Expecto
+
 later:
 - Fable? Giraffe? Elmish?
 - autosplitter integration? speedrun.com integration? twitch integration?
