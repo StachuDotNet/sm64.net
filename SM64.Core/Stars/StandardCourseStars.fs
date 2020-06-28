@@ -27,16 +27,28 @@ type StandardCourseStar =
     | BlastAwayTheWall // 6
     
     // JRB
+    | PlunderInTheSunkenShip // 1
+    | CanTheEelComeOutAndPlay // 2
+    | TreasureOfTheOceanCave // 3
+    | RedCoinsOnTheShipAfloat // 4
+    | BlastToTheStonePillar // 5
+    | ThroughTheJetStream // 6
     
     // CCM
     | SlipSlidinAway // 1
     | LilPenguinLost // 2
     | BigPenguinRace // 3
+    | FrostySlideFor8RedCoins // 4
+    | SnowmanLostHisHead // 5
     | WallKicksWillWork // 6
     
     // SSL
     | InTheTalonsOfTheBigBird // 1
     | ShiningAtopThePyramid // 2
+    | InsideTheAncientPyramid // 3
+    | StandTallOnTheFourPillars // 4
+    | FreeFlyingFor8RedCoins // 5
+    | PyramidPuzzle // 6
     
     // LLL
     | BoilTheBigBully // 1
@@ -47,6 +59,10 @@ type StandardCourseStar =
     | ElevatorTourInTheVolcano // 6
     
     // HMC
+    // 1
+    // 2
+    // 3
+    // 4
     | AMazeingEmergencyExit // 5
     | WatchForRollingRocks // 6
     

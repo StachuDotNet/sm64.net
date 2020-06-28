@@ -47,105 +47,105 @@ let getInfoForStandardCourse gameRelease standardCourse: StandardCourseInfo =
     | BobOmbBattlefield ->
         { Name =
             match gameRelease with
-            | US -> "Bob-omb Battlefield"
+            | NA -> "Bob-omb Battlefield"
           CourseNumber = 1
           Abbreviation = "BoB"
           EntryRequirements = [] }
     | WhompsFortress ->
         { Name =
             match gameRelease with
-            | US -> "Whomp's Fortress"
+            | NA -> "Whomp's Fortress"
           CourseNumber = 2
           Abbreviation = "WF"
           EntryRequirements = [MinimumStarCount 1] }
     | JollyRogerBay ->
         { Name =
             match gameRelease with
-            | US -> "Jolly Roger Bay"
+            | NA -> "Jolly Roger Bay"
           CourseNumber = 3
           Abbreviation = "JRB"
           EntryRequirements = [MinimumStarCount 3] }
     | CoolCoolMountain ->
         { Name =
             match gameRelease with
-            | US -> "Cool, Cool Mountain"
+            | NA -> "Cool, Cool Mountain"
           CourseNumber = 4
           Abbreviation = "CCM"
           EntryRequirements = [MinimumStarCount 3] }
     | BigBoosHaunt ->
         { Name =
             match gameRelease with
-            | US -> "Big Boo's Haunt"
+            | NA -> "Big Boo's Haunt"
           CourseNumber = 5
           Abbreviation = "BBH"
           EntryRequirements = raise (NotImplementedException("I forget")) }
     | HazyMazyCave ->
         { Name =
             match gameRelease with
-            | US -> "Hazy Mazy Cave"
+            | NA -> "Hazy Mazy Cave"
           CourseNumber = 6
           Abbreviation = "HMC"
           EntryRequirements = [IsInBasement] }
     | LethalLavaLand ->
         { Name =
             match gameRelease with
-            | US -> "Lethal Lava Land"
+            | NA -> "Lethal Lava Land"
           CourseNumber = 7
           Abbreviation = "LLL"
           EntryRequirements = [IsInBasement] } 
     | ShiftingSandLand ->
         { Name =
             match gameRelease with
-            | US -> "Shifting Sand Land"
+            | NA -> "Shifting Sand Land"
           CourseNumber = 8
           Abbreviation = "SSL"
           EntryRequirements = [IsInBasement] } 
     | DireDireDocks ->
         { Name =
             match gameRelease with
-            | US -> "Dire, Dire Docks"
+            | NA -> "Dire, Dire Docks"
           CourseNumber = 9
           Abbreviation = "DDD"
           EntryRequirements = [IsInBasement; MinimumStarCount 30] } 
     | SnowmanLand ->
         { Name =
             match gameRelease with
-            | US -> "Snowman's Land"
+            | NA -> "Snowman's Land"
           CourseNumber = 10
           Abbreviation = "SL"
           EntryRequirements = [IsUpstairs] } 
     | WetDryWorld ->
         { Name =
             match gameRelease with
-            | US -> "Wet-Dry World"
+            | NA -> "Wet-Dry World"
           CourseNumber = 11 
           Abbreviation = "WDW"
           EntryRequirements = [IsUpstairs] } 
     | TallTallMountain ->
         { Name =
             match gameRelease with
-            | US -> "Tall, Tall Mountain"
+            | NA -> "Tall, Tall Mountain"
           CourseNumber = 12
           Abbreviation = "TTM"
           EntryRequirements = [IsUpstairs] } 
     | TinyHugeIsland ->
         { Name =
             match gameRelease with
-            | US -> "Tiny-Huge Island"
+            | NA -> "Tiny-Huge Island"
           CourseNumber = 13
           Abbreviation = "THI"
           EntryRequirements = [IsUpstairs] } 
     | TickTockClock ->
         { Name =
             match gameRelease with
-            | US -> "Tick Tock Clock"
+            | NA -> "Tick Tock Clock"
           CourseNumber = 14
           Abbreviation = "TTC"
           EntryRequirements = [IsInTippy] } 
     | RainbowRide ->
         { Name =
             match gameRelease with
-            | US -> "Rainbow Ride"
+            | NA -> "Rainbow Ride"
           CourseNumber = 15
           Abbreviation = "RR"
           EntryRequirements = [IsInTippy] }
@@ -171,34 +171,40 @@ type SecretStageInfo =
     
 let getSecretStageInfo gameRelease secretStage =
     match secretStage with
+    | PrincessSecretSlide ->
+        { Name =
+            match gameRelease with
+            | NA -> "Pricess Secret Slide"
+          Abbreviation = "PSS"
+          EntryRequirements = [] }
     | TowerOfTheWingCap ->
         { Name =
             match gameRelease with
-            | US -> "Tower of the Wing Cap"
+            | NA -> "Tower of the Wing Cap"
           Abbreviation = "ToTWC"
           EntryRequirements = [MinimumStarCount 10] }
     | VanishCapUnderTheMoat ->
         { Name =
             match gameRelease with
-            | US -> "Vanish Cap Under the Moat"
+            | NA -> "Vanish Cap Under the Moat"
           Abbreviation = "CotMC"
           EntryRequirements = [IsInBasement] } // ok well not "in basement" exactly
     | CavernOfTheMetalCave ->
         { Name =
             match gameRelease with
-            | US -> "Cavern of the Metal Cap"
+            | NA -> "Cavern of the Metal Cap"
           Abbreviation = "VCutM"
           EntryRequirements = [IsInBasement] }
     | SecretAquarium ->
         { Name =
             match gameRelease with
-            | US -> "The Secret Aquarium"
+            | NA -> "The Secret Aquarium"
           Abbreviation = "SA"
           EntryRequirements = [] }
     | Cloud ->
         { Name =
             match gameRelease with
-            | US -> "The Secret Aquarium"
+            | NA -> "The Secret Aquarium"
           Abbreviation = "SA" //?
           EntryRequirements = [IsInBasement] }
 
@@ -215,18 +221,18 @@ let getBowserStageInfo gameRelease bowserStage =
     | BitDW ->
         { Name = 
             match gameRelease with
-            | US -> "Bowser in the Dark World"
+            | NA -> "Bowser in the Dark World"
           Abbreviation = "BitDW"
           EntryRequirements = [] }
     | BitFS ->
         { Name = 
             match gameRelease with
-            | US -> "Bowser in the Fire Sea"
+            | NA -> "Bowser in the Fire Sea"
           Abbreviation = "BitFS"
           EntryRequirements = [] }
     | BitS ->
         { Name = 
             match gameRelease with
-            | US -> "Bowser in the Sky"
+            | NA -> "Bowser in the Sky"
           Abbreviation = "BitS"
           EntryRequirements = [] }

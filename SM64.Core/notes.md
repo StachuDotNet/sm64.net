@@ -3,8 +3,6 @@ half-organized TODOs:
 - need to record what a star unlocks
     - e.g. the ship star in DDD unlocks 2nd bowser pipe opening (or whatever)
 
-
-
 // tech ideas
 - graph DB?
     - options: arango, orient, neo4j, custom?
