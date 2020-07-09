@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="Program.fs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Feliz.Bulma.ViewEngine" Version="0.4.0" />
+      <PackageReference Include="Feliz.ViewEngine" Version="0.23.0" />
+      <PackageReference Include="Giraffe" Version="4.1.0" />
+    </ItemGroup>
+
+</Project>
