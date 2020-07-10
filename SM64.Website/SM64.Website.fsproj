@@ -5,6 +5,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Include="Layout.fs" />
+        <Compile Include="Views.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>
 
