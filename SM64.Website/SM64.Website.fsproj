@@ -5,8 +5,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Layout.fs" />
-        <Compile Include="Views.fs" />
+        <Compile Include="SiteRoutes.fs" />
+        <Compile Include="Layouts.fs" />
+        <Compile Include="Views\Home.fs" />
+        <Compile Include="Views\Plot.fs" />
+        <Compile Include="Views\Mechanics.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>
 
