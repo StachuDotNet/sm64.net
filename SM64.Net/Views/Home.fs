@@ -118,7 +118,7 @@ let private contents = [
                 bracketLink SiteRoute.Contribute.PrimaryPath "Contributions"
                 Html.text " are welcome. Contact "
                 bracketLink "https://stachu.net" "me"
-                Html.text "or create a GitHub issue to connect."
+                Html.text " or create a GitHub issue to connect."
             ]
         ]
     ]
