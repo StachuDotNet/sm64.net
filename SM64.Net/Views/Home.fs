@@ -1,8 +1,8 @@
-module SM64.Website.Views.Home
+module SM64.Net.Views.Home
 
 open Feliz.Bulma.ViewEngine
 open Feliz.ViewEngine
-open SM64.Website
+open SM64.Net
     
 let bracketLink path (text: string) = Html.span [
     Html.text " ["
@@ -114,7 +114,10 @@ let private contents = [
                 ]
             ]
             
-            Html.p "Contributions will be welcome once the site is a bit more settled!"
+            Html.p [
+                bracketLink SiteRoute.Contribute.PrimaryPath "Contributions"
+                Html.text " are welcome."
+            ]
         ]
     ]
 ]

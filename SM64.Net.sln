@@ -6,7 +6,7 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SM64.Tests", "SM64.Tests\SM
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SM64.SpeedrunningData", "SM64.SpeedrunningData\SM64.SpeedrunningData.fsproj", "{6B977F8E-CB96-4474-9C78-5EFBDA9C3F2D}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SM64.Website", "SM64.Website\SM64.Website.fsproj", "{F4D22E5E-0652-4264-9ECC-089EBF3509CD}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SM64.Net", "SM64.Net\SM64.Net.fsproj", "{F4D22E5E-0652-4264-9ECC-089EBF3509CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

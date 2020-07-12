@@ -4,15 +4,16 @@ open Microsoft.AspNetCore.Hosting
 open Microsoft.Extensions.Hosting
 open Microsoft.Extensions.DependencyInjection
 open Giraffe
-open SM64.Website
-open SM64.Website.Layouts
-open SM64.Website.Views
+open SM64.Net
+open SM64.Net.Layouts
+open SM64.Net.Views
     
 let webApp =
     choose
       [ route "/ping"   >=> text "pong"
         
         route SiteRoute.Home.PrimaryPath >=> (Home.homeView |> layoutWithoutNav)
+        route SiteRoute.Contribute.PrimaryPath >=> (Contribute.contributeView |> layoutWithoutNav)
         
         // the game
         route SiteRoute.Game.PrimaryPath >=> (Html.text "the game (high level)" |> layoutWithNav)

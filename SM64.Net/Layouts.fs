@@ -1,4 +1,4 @@
-module SM64.Website.Layouts
+module SM64.Net.Layouts
 
 open Feliz.Bulma.ViewEngine
 open Feliz.ViewEngine

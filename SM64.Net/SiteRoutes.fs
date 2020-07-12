@@ -1,8 +1,9 @@
-namespace SM64.Website
+namespace SM64.Net
 
 [<RequireQualifiedAccess>]
 type SiteRoute =
     | Home
+    | Contribute
     
     // Core
     | Game
@@ -25,8 +26,10 @@ type SiteRoute =
     | Challenges
     member this.PrimaryPath =
         match this with
-        // Core
         | Home -> "/"
+        | Contribute -> "/contribute"
+        
+        // Core
         | Game -> "/game"
         | Plot -> "/plot"
         | Mechanics -> "/mechanics"

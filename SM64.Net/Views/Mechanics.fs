@@ -1,4 +1,4 @@
-module SM64.Website.Views.Plot
+module SM64.Net.Views.Plot
 
 open Feliz.ViewEngine
 

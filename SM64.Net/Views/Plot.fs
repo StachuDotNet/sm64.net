@@ -1,4 +1,4 @@
-module SM64.Website.Views.Mechanics
+module SM64.Net.Views.Mechanics
 
 open Feliz.ViewEngine
 
