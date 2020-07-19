@@ -1,5 +1,11 @@
 namespace SM64.Net
 
+open SM64.Core
+open SM64.Courses
+open SM64.Stars.StandardCourseStars
+
+type SpeedrunnerUserHandle = string
+
 [<RequireQualifiedAccess>]
 type SiteRoute =
     | Home
@@ -10,21 +16,33 @@ type SiteRoute =
     | Plot
     | Mechanics
     | Castle
-    | Stars
     | Characters
+    
     | Stages
+    | StandardCourses
+    | StandardCourse of StandardCourse
+    | StandardCourseStar of StandardCourseStar
+    | SecretStages
+    | SecretStage of SecretStage
+    | SecretStageStar of SecretStage
+    | BowserStages
+    | BowserStage of BowserStage
+    | BowserStageReds of BowserStage
+    | AllStars
     
     // Speedrunning
     | Speedrunning
     | Records
     | Rankings
     | Categories
-    | Profiles
+    | Speedrunners
+    | Speedrunner of SpeedrunnerUserHandle
     | Strategies
     | Routes
     | Competitions
     | Challenges
-    member this.PrimaryPath =
+    
+    member this.Path =
         match this with
         | Home -> "/"
         | Contribute -> "/contribute"
@@ -33,25 +51,49 @@ type SiteRoute =
         | Game -> "/game"
         | Plot -> "/plot"
         | Mechanics -> "/mechanics"
-        | Castle -> "/castle"
-        | Stars -> "/stars"
         | Characters -> "/characters"
+        | Castle -> "/castle"
+        
         | Stages -> "/stages"
         
+        | StandardCourses -> "/stages/courses"
+        | StandardCourse stage ->
+            let stageInfo = getInfoForStandardCourse SupportedGameRelease.NA stage
+            sprintf "/stages/courses/%s" stageInfo.Abbreviation
+        | StandardCourseStar star ->
+            let course, placement = (StandardCourseStar.getStandardCourseStarInfo star).CourseConnection
+            let courseInfo = getInfoForStandardCourse SupportedGameRelease.NA course
+            sprintf "/stars/%s/%i" courseInfo.Abbreviation placement.ToInt
+        
+        | SecretStages -> "/stages/secret"
+        | SecretStage stage ->
+            let stageInfo = getSecretStageInfo SupportedGameRelease.NA stage
+            sprintf "/stages/secret/%s" stageInfo.Abbreviation
+        | SecretStageStar stage ->
+            let stageInfo = getSecretStageInfo SupportedGameRelease.NA stage
+            sprintf "/stages/secret/%s/star" stageInfo.Abbreviation
+        | BowserStages -> "/stages/bowser"
+        | BowserStage stage ->
+            let stageInfo = getBowserStageInfo SupportedGameRelease.NA stage
+            sprintf "/stages/bowser/%s" stageInfo.Abbreviation
+        | BowserStageReds stage ->
+            let stageInfo = getBowserStageInfo SupportedGameRelease.NA stage
+            sprintf "/stages/bowser/%s/reds" stageInfo.Abbreviation
+        
+        | AllStars -> "/stars"
+
+                        
         // Speedrunning
         | Speedrunning -> "/speedrunning"
-        | Records -> "/records"
-        | Rankings -> "/rankings"
-        | Categories -> "/categories"
-        | Routes -> "/routes"
-        | Profiles -> "/profiles"
-        | Strategies -> "/strategies"
-        | Competitions -> "/competitions"
-        | Challenges -> "/challenges"
+        | Records -> "/speedrunning/records"
+        | Rankings -> "/speedrunning/rankings"
+        | Categories -> "/speedrunning/categories"
+        | Routes -> "/speedrunning/routes"
+        | Speedrunners -> "/speedrunning/speedrunners"
+        | Speedrunner handle -> sprintf "/speedrunning/speedrunners/%s" handle
+        | Strategies -> "/speedrunning/strategies"
+        | Competitions -> "/speedrunning/competitions"
+        | Challenges -> "/speedrunning/challenges"
         
         // Tools (todo)
         
-    member this.AlternativePaths =
-        match this with
-        | Strategies -> ["/strats"]
-        | _ -> []

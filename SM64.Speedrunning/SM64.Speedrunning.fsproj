@@ -1,14 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="MySpeedrunning.fs" />
+        <Compile Include="Speedrunning.fs" />
+        <Compile Include="Speedrunner.fs" />
+        <Compile Include="Recommendations.fs" />
+        <Compile Include="Competitions.fs" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\SM64.Core\SM64.Core.fsproj" />
-      <ProjectReference Include="..\SM64.Speedrunning\SM64.Speedrunning.fsproj" />
     </ItemGroup>
+
 </Project>

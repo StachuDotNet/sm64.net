@@ -39,7 +39,7 @@ let nav =
         prop.children [
           Html.a [
               prop.classes ["navbar-item"]
-              prop.href SiteRoute.Home.PrimaryPath
+              prop.href SiteRoute.Home.Path
               prop.children [
                   Bulma.title.h1 "sm64.net"
               ]
@@ -62,7 +62,7 @@ let nav =
                 Html.a [
                     prop.classes ["navbar-item"]
                     prop.text "?"
-                    prop.href SiteRoute.Home.PrimaryPath
+                    prop.href SiteRoute.Home.Path
                 ]
                 Html.div [
                     prop.classes ["navbar-item"; "has-dropdown"; "is-hoverable"]
@@ -70,19 +70,19 @@ let nav =
                        Html.a [
                            prop.classes ["navbar-link"]
                            prop.text "The Game"
-                           prop.href SiteRoute.Game.PrimaryPath
+                           prop.href SiteRoute.Game.Path
                        ]
                        Html.div [
                            prop.classes ["navbar-dropdown"]
                            prop.children [
-                                navLink "The Game" SiteRoute.Game.PrimaryPath
+                                navLink "The Game" SiteRoute.Game.Path
                                 Html.hr [prop.classes ["navbar-divider"]]
-                                navLink "Plot" SiteRoute.Plot.PrimaryPath
-                                navLink "Mechanics" SiteRoute.Mechanics.PrimaryPath
-                                navLink "Castle" SiteRoute.Castle.PrimaryPath
-                                navLink "Characters" SiteRoute.Characters.PrimaryPath
-                                navLink "Stages" SiteRoute.Stages.PrimaryPath
-                                navLink "Stars" SiteRoute.Stars.PrimaryPath
+                                navLink "Plot" SiteRoute.Plot.Path
+                                navLink "Mechanics" SiteRoute.Mechanics.Path
+                                navLink "Castle" SiteRoute.Castle.Path
+                                navLink "Characters" SiteRoute.Characters.Path
+                                navLink "Stages" SiteRoute.Stages.Path
+                                navLink "Stars" SiteRoute.AllStars.Path
                            ]
                        ]
                     ]
@@ -93,21 +93,21 @@ let nav =
                        Html.a [
                            prop.classes ["navbar-link"]
                            prop.text "Speedrunning"
-                           prop.href SiteRoute.Speedrunning.PrimaryPath
+                           prop.href SiteRoute.Speedrunning.Path
                        ]
                        Html.div [
                            prop.classes ["navbar-dropdown"]
                            prop.children [
-                                navLink "Speedrunning" SiteRoute.Speedrunning.PrimaryPath
+                                navLink "Speedrunning" SiteRoute.Speedrunning.Path
                                 Html.hr [prop.classes ["navbar-divider"]]
-                                navLink "Records" SiteRoute.Records.PrimaryPath
-                                navLink "Rankings" SiteRoute.Rankings.PrimaryPath
-                                navLink "Categories" SiteRoute.Categories.PrimaryPath
-                                navLink "Routes" SiteRoute.Routes.PrimaryPath
-                                navLink "Profiles" SiteRoute.Profiles.PrimaryPath
-                                navLink "Strategies" SiteRoute.Strategies.PrimaryPath
-                                navLink "Competitions" SiteRoute.Competitions.PrimaryPath
-                                navLink "Challenges" SiteRoute.Challenges.PrimaryPath
+                                navLink "Records" SiteRoute.Records.Path
+                                navLink "Rankings" SiteRoute.Rankings.Path
+                                navLink "Categories" SiteRoute.Categories.Path
+                                navLink "Routes" SiteRoute.Routes.Path
+                                navLink "Speedrunners" SiteRoute.Speedrunners.Path
+                                navLink "Strategies" SiteRoute.Strategies.Path
+                                navLink "Competitions" SiteRoute.Competitions.Path
+                                navLink "Challenges" SiteRoute.Challenges.Path
                            ]
                        ]
                     ]

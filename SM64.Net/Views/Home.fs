@@ -29,23 +29,23 @@ let private contents = [
                             Html.ul [
                                 Html.li [
                                     Html.text "the "
-                                    bracketLink SiteRoute.Plot.PrimaryPath "plot"
+                                    bracketLink SiteRoute.Plot.Path "plot"
                                 ]
                                 Html.li [
                                     Html.text "core "
-                                    bracketLink SiteRoute.Mechanics.PrimaryPath "mechanics"
+                                    bracketLink SiteRoute.Mechanics.Path "mechanics"
                                 ]
                                 Html.li [
                                     Html.text "varied "
-                                    bracketLink SiteRoute.Characters.PrimaryPath "characters"
+                                    bracketLink SiteRoute.Characters.Path "characters"
                                 ]
                                 Html.li [
                                     Html.text "the "
-                                    bracketLink SiteRoute.Castle.PrimaryPath "castle"
+                                    bracketLink SiteRoute.Castle.Path "castle"
                                     Html.text ", its "
-                                    bracketLink SiteRoute.Stages.PrimaryPath "stages"
+                                    bracketLink SiteRoute.Stages.Path "stages"
                                     Html.text ", and their "
-                                    bracketLink SiteRoute.Stars.PrimaryPath "stars"
+                                    bracketLink SiteRoute.AllStars.Path "stars"
                                 ]
                             ]
                         ]
@@ -54,34 +54,34 @@ let private contents = [
                     Html.li [
                         prop.children [
                             Html.text "the "
-                            bracketLink SiteRoute.Speedrunning.PrimaryPath "speedrunning"
+                            bracketLink SiteRoute.Speedrunning.Path "speedrunning"
                             Html.text " of SM64"
                             
                             Html.ul [
                                 Html.li [
                                     Html.text "world "
-                                    bracketLink SiteRoute.Records.PrimaryPath "records"
+                                    bracketLink SiteRoute.Records.Path "records"
                                     Html.text " and "
-                                    bracketLink SiteRoute.Rankings.PrimaryPath "rankings"
+                                    bracketLink SiteRoute.Rankings.Path "rankings"
                                     Html.text " of major and minor "
-                                    bracketLink SiteRoute.Categories.PrimaryPath "categories"
+                                    bracketLink SiteRoute.Categories.Path "categories"
                                 ]
                                 Html.li [
                                     Html.text "speedrunner "
-                                    bracketLink SiteRoute.Profiles.PrimaryPath "profiles"
+                                    bracketLink SiteRoute.Speedrunners.Path "profiles"
                                 ]
                                 Html.li [
                                     Html.text "a directory of "
-                                    bracketLink SiteRoute.Strategies.PrimaryPath "strategies"
+                                    bracketLink SiteRoute.Strategies.Path "strategies"
                                     Html.text " and "
-                                    bracketLink SiteRoute.Routes.PrimaryPath "routes"
+                                    bracketLink SiteRoute.Routes.Path "routes"
                                     Html.text " used in speedrunning"
                                 ]
                                 Html.li [
                                     Html.text "speedrunning "
-                                    bracketLink SiteRoute.Competitions.PrimaryPath "competitions"
+                                    bracketLink SiteRoute.Competitions.Path "competitions"
                                     Html.text " and "
-                                    bracketLink SiteRoute.Challenges.PrimaryPath "competitions"
+                                    bracketLink SiteRoute.Challenges.Path "competitions"
                                 ]
                                 Html.li "[a trainer] to help you improve your speedrunning"
                                 Html.li "a directory of software [tools]"
@@ -115,7 +115,7 @@ let private contents = [
             ]
             
             Html.p [
-                bracketLink SiteRoute.Contribute.PrimaryPath "Contributions"
+                bracketLink SiteRoute.Contribute.Path "Contributions"
                 Html.text " are welcome. Contact "
                 bracketLink "https://stachu.net" "me"
                 Html.text " or create a GitHub issue to connect."

@@ -11,8 +11,33 @@
         <Compile Include="Layouts.fs" />
         <Compile Include="Views\Home.fs" />
         <Compile Include="Views\Contribute.fs" />
-        <Compile Include="Views\Plot.fs" />
-        <Compile Include="Views\Mechanics.fs" />
+        <Compile Include="Views\Core\Game.fs" />
+        <Compile Include="Views\Core\Plot.fs" />
+        <Compile Include="Views\Core\Mechanics.fs" />
+        <Compile Include="Views\Core\Castle.fs" />
+        <Compile Include="Views\Core\Characters.fs" />
+        <Compile Include="Views\Core\Stages.fs" />
+        <Compile Include="Views\Core\StandardCourses.fs" />
+        <Compile Include="Views\Core\StandardCourse.fs" />
+        <Compile Include="Views\Core\StandardCourseStar.fs" />
+        <Compile Include="Views\Core\SecretStages.fs" />
+        <Compile Include="Views\Core\SecretStage.fs" />
+        <Compile Include="Views\Core\SecretStageStar.fs" />
+        <Compile Include="Views\Core\BowserStages.fs" />
+        <Compile Include="Views\Core\BowserStage.fs" />
+        <Compile Include="Views\Core\BowserStageReds.fs" />
+        <Compile Include="Views\Core\AllStars.fs" />
+        <Compile Include="Views\Speedrunning\Speedrunning.fs" />
+        <Compile Include="Views\Speedrunning\Records.fs" />
+        <Compile Include="Views\Speedrunning\Rankings.fs" />
+        <Compile Include="Views\Speedrunning\Speedrunners.fs" />
+        <Compile Include="Views\Speedrunning\Speedrunner.fs" />
+        <Compile Include="Views\Speedrunning\Categories.fs" />
+        <Compile Include="Views\Speedrunning\Routes.fs" />
+        <Compile Include="Views\Speedrunning\Strategies.fs" />
+        <Compile Include="Views\Speedrunning\Competitions.fs" />
+        <Compile Include="Views\Speedrunning\Challenges.fs" />
+        <Compile Include="RouteChooser.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>
 

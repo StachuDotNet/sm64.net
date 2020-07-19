@@ -41,6 +41,8 @@ type StandardCourseInfo =
       
       Abbreviation: string
       
+      // CoinCount: int //outstanding question; how to model the situations wherein coins are "repeatable"? 
+      
       EntryRequirements: EntryRequirement list }
     
 let getInfoForStandardCourse gameRelease standardCourse: StandardCourseInfo =

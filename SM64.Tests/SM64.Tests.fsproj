@@ -7,7 +7,6 @@
 
     <ItemGroup>
         <Compile Include="Courses.fs" />
-        <Compile Include="Stars.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>
 

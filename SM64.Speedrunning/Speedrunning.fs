@@ -1,4 +1,4 @@
-module SM64.Speedrunning
+module SM64.Speedrunning.Core
 
 open System
 open SM64.Routing
