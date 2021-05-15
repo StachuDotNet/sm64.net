@@ -5,10 +5,16 @@
 
     <ItemGroup>
         <Compile Include="MySpeedrunning.fs" />
+        <Compile Include="SpeedrunDotComClient.fs" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\SM64.Core\SM64.Core.fsproj" />
       <ProjectReference Include="..\SM64.Speedrunning\SM64.Speedrunning.fsproj" />
+      <ProjectReference Include="..\SM64.Utils\SM64.Utils.fsproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     </ItemGroup>
 </Project>

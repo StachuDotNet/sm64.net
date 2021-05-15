@@ -49,5 +49,6 @@
 
     <ItemGroup>
         <ProjectReference Include="..\SM64.Core\SM64.Core.fsproj" />
+        <ProjectReference Include="..\SM64.Net.TwitchBot\SM64.Net.TwitchBot.fsproj" />
     </ItemGroup>
 </Project>

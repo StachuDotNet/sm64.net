@@ -18,35 +18,45 @@ type SpeedrunningCategoryMetadata =
     { Name: string
       MinimumStarCount: int
       Restrictions: SpeedrunningCategoryRestriction list }
-
+ 
+let categoryName cat =
+    match cat with
+    | ZeroStar -> 0
+    | OneStar -> 1
+    | SixteenStar -> 16
+    | FiftyStar -> 50
+    | SeventyStar -> 70
+    | OneTwentyStar -> 120
+    |> sprintf "%i-Star"
+   
 let getSpeedrunningCategoryMetadata category =
-    let commonName = sprintf "%i-Star"
-    
+    let name = categoryName category
     match category with
     | ZeroStar ->
-        { Name = commonName 0
+        { Name = name
           MinimumStarCount = 0
           Restrictions = [] }
     | OneStar ->
-        { Name = commonName 1
+        { Name = name
           MinimumStarCount = 1
           Restrictions = [] }
     | SixteenStar ->
-        { Name = commonName 16
+        { Name = name
           MinimumStarCount = 16
           Restrictions = [] }
     | FiftyStar ->
-        { Name = commonName 50
+        { Name = name
           MinimumStarCount = 50
           Restrictions = [] }
     | SeventyStar ->
-        { Name = commonName 70
+        { Name = name
           MinimumStarCount = 70
           Restrictions = [] }
     | OneTwentyStar ->
-        { Name = commonName 120
+        { Name = name
           MinimumStarCount = 120
           Restrictions = [] }
+
 
 type CategoryRoute =
     SpeedrunningCategory * Segment list
