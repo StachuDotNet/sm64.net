@@ -1,4 +1,4 @@
-module SM64.Net.Views.Categories
+module SM64.Net.Views.Speedrunning.Categories
 
 open Feliz.ViewEngine
 

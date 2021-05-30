@@ -1,4 +1,4 @@
-module SM64.Net.Views.Rankings
+module SM64.Net.Views.Speedrunning.Rankings
 
 open Feliz.ViewEngine
 

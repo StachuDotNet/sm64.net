@@ -81,13 +81,24 @@ let private contents = [
                                     Html.text "speedrunning "
                                     bracketLink SiteRoute.Competitions.Path "competitions"
                                     Html.text " and "
-                                    bracketLink SiteRoute.Challenges.Path "competitions"
+                                    bracketLink SiteRoute.Challenges.Path "challenges"
                                 ]
-                                Html.li "[a trainer] to help you improve your speedrunning"
-                                Html.li "a directory of software [tools]"
                             ]
                         ]                                        
                     ]
+                    
+                    Html.li "the world of [ROM Hacks], variants of the original Super Mario 64 game"
+                    
+                    Html.li [
+                        Html.text "a directory of software "
+                        bracketLink SiteRoute.Tools.Path "tools"
+                        Html.text " to assist with speedrunning"
+                        
+                        Html.ul [
+                            Html.li "[a trainer] to help you improve your speedrunning"
+                        ]
+                    ]
+                    
                     Html.li "a software development-focused [log] of how this site is being built"
                 ]
             ]

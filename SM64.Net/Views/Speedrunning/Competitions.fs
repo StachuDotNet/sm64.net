@@ -1,4 +1,4 @@
-module SM64.Net.Views.Competitions
+module SM64.Net.Views.Speedrunning.Competitions
 
 open Feliz.ViewEngine
 

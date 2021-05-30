@@ -1,4 +1,4 @@
-module SM64.Net.Views.Records
+module SM64.Net.Views.Speedrunning.Records
 
 open Feliz.ViewEngine
 

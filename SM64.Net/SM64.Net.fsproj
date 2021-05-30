@@ -37,6 +37,8 @@
         <Compile Include="Views\Speedrunning\Strategies.fs" />
         <Compile Include="Views\Speedrunning\Competitions.fs" />
         <Compile Include="Views\Speedrunning\Challenges.fs" />
+        <Compile Include="Views\Tools\Index.fs" />
+        <Compile Include="Views\Tools\Usamune.fs" />
         <Compile Include="RouteChooser.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>

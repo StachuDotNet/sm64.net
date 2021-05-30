@@ -1,4 +1,4 @@
-module SM64.Net.Views.Strategies
+module SM64.Net.Views.Speedrunning.Strategies
 
 open Feliz.ViewEngine
 

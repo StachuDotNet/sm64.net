@@ -34,14 +34,18 @@ let routeChooser: (HttpFunc -> Microsoft.AspNetCore.Http.HttpContext -> HttpFunc
         route  "/stars" >=> (Views.AllStars.view |> layoutWithNav)
         
         // speedrunning and speedrunners
-        route  "/speedrunning" >=> (Views.Speedrunning.view |> layoutWithNav)
-        route  "/speedrunning/records" >=> (Views.Records.view |> layoutWithNav)
-        route  "/speedrunning/rankings" >=> (Views.Rankings.view |> layoutWithNav)
-        route  "/speedrunning/categories" >=> (Views.Categories.view |> layoutWithNav)
-        route  "/speedrunning/routes" >=> (Views.Routes.view |> layoutWithNav)
-        route  "/speedrunning/speedrunners" >=> (Views.Speedrunners.view |> layoutWithNav)
-        routef "/speedrunning/speedrunners/%s" (Views.Speedrunner.view >> layoutWithNav)
-        route  "/speedrunning/strats" >=> (Views.Strategies.view |> layoutWithNav)
-        route  "/speedrunning/competitions" >=> (Views.Competitions.view |> layoutWithNav)
-        route  "/speedrunning/challenges" >=> (Views.Challenges.view |> layoutWithNav)
+        route  "/speedrunning" >=> (Views.Speedrunning.Index.view |> layoutWithNav)
+        route  "/speedrunning/records" >=> (Views.Speedrunning.Records.view |> layoutWithNav)
+        route  "/speedrunning/rankings" >=> (Views.Speedrunning.Rankings.view |> layoutWithNav)
+        route  "/speedrunning/categories" >=> (Views.Speedrunning.Categories.view |> layoutWithNav)
+        route  "/speedrunning/routes" >=> (Views.Speedrunning.Routes.view |> layoutWithNav)
+        route  "/speedrunning/speedrunners" >=> (Views.Speedrunning.Speedrunners.view |> layoutWithNav)
+        routef "/speedrunning/speedrunners/%s" (Views.Speedrunning.Speedrunner.view >> layoutWithNav)
+        route  "/speedrunning/strategies" >=> (Views.Speedrunning.Strategies.view |> layoutWithNav)
+        route  "/speedrunning/competitions" >=> (Views.Speedrunning.Competitions.view |> layoutWithNav)
+        route  "/speedrunning/challenges" >=> (Views.Speedrunning.Challenges.view |> layoutWithNav)
+        
+        // tools
+        route  "/tools" >=> (Views.Tools.Index.view |> layoutWithNav)
+        route  "/tools/usamune" >=> (Views.Tools.Usamune.view |> layoutWithNav)
       ]

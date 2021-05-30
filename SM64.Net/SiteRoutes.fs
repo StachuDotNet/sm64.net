@@ -42,6 +42,9 @@ type SiteRoute =
     | Competitions
     | Challenges
     
+    | Tools
+    | Usamune
+    
     member this.Path =
         match this with
         | Home -> "/"
@@ -94,6 +97,7 @@ type SiteRoute =
         | Strategies -> "/speedrunning/strategies"
         | Competitions -> "/speedrunning/competitions"
         | Challenges -> "/speedrunning/challenges"
-        
+
         // Tools (todo)
-        
+        | Tools -> "/tools"
+        | Usamune -> "/tools/usamune"

@@ -1,4 +1,4 @@
-module SM64.Net.Views.Challenges
+module SM64.Net.Views.Speedrunning.Challenges
 
 open Feliz.ViewEngine
 
