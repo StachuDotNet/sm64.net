@@ -60,3 +60,6 @@ paket-files/
 
 # FAKE - F# Make
 .fake/
+
+# Jetbrains Rider stuff
+.idea 

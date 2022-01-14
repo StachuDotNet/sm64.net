@@ -1,17 +1,16 @@
 module SM64.Net.RouteChooser
 
-open Feliz.ViewEngine
 open Giraffe
+
 open SM64.Net
 open SM64.Net.Layouts
-open SM64.Net.Views
 
 let routeChooser: (HttpFunc -> Microsoft.AspNetCore.Http.HttpContext -> HttpFuncResult) =
     choose
       [ route "/ping" >=> text "pong"
         
-        route "/" >=> (Home.homeView |> layoutWithoutNav)
-        route "/contribute" >=> (Contribute.contributeView |> layoutWithoutNav)
+        route "/" >=> (Views.Home.homeView |> layoutWithoutNav)
+        route "/contribute" >=> (Views.Contribute.contributeView |> layoutWithoutNav)
         
         // Game - Meta
         route  "/game" >=> (Views.Game.view|> layoutWithNav)
@@ -33,7 +32,7 @@ let routeChooser: (HttpFunc -> Microsoft.AspNetCore.Http.HttpContext -> HttpFunc
         routef "/stages/secret/%s/star" (Views.SecretStageStar.view >> layoutWithNav)
         route  "/stars" >=> (Views.AllStars.view |> layoutWithNav)
         
-        // speedrunning and speedrunners
+        // Speedrunning
         route  "/speedrunning" >=> (Views.Speedrunning.Index.view |> layoutWithNav)
         route  "/speedrunning/records" >=> (Views.Speedrunning.Records.view |> layoutWithNav)
         route  "/speedrunning/rankings" >=> (Views.Speedrunning.Rankings.view |> layoutWithNav)
@@ -45,7 +44,8 @@ let routeChooser: (HttpFunc -> Microsoft.AspNetCore.Http.HttpContext -> HttpFunc
         route  "/speedrunning/competitions" >=> (Views.Speedrunning.Competitions.view |> layoutWithNav)
         route  "/speedrunning/challenges" >=> (Views.Speedrunning.Challenges.view |> layoutWithNav)
         
-        // tools
+        // Tools
         route  "/tools" >=> (Views.Tools.Index.view |> layoutWithNav)
+        route  "/tools/twitch-bot" >=> (Views.Tools.TwitchBot.view |> layoutWithNav)
         route  "/tools/usamune" >=> (Views.Tools.Usamune.view |> layoutWithNav)
       ]

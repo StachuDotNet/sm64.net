@@ -32,6 +32,10 @@ on [Twitter](https://twitter.com/stachudotnet),
 [Twitch](https://twitch.tv/stachudotnet),
 or StachuDotNet#9760 on Discord.
 
+If you want to run this locally, you can:
+- `docker build -t sm64-twitch-bot-image -f Dockerfile .`
+- `docker create --name sm64-twitch-bot sm64-twitch-bot-image`
+
 ## Tech Stuff
 
 now: F#, Expecto

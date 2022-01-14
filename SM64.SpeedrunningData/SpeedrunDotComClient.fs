@@ -1,13 +1,12 @@
 module SpeedrunDotCom.Client
 
 open System
-
 open System.Net.Http
 open Newtonsoft.Json
 open Newtonsoft.Json.Serialization
 
-open SM64.Speedrunning.Core
 open SM64.Utils
+open SM64.Speedrunning.Categories
 
 let baseUrl = "https://speedrun.com/api/v1"
 
@@ -65,10 +64,13 @@ module GetCategory =
     type Run = { place: int; run: Run2 }
     type CategoryResponse = { runs: Run[] }
     
-    let getRankings (cat: SpeedrunningCategory) =
-        let url =
-            let categoryId = getCategoryId cat
-            sprintf "%s/leaderboards/sm64/category/%s" baseUrl categoryId
-            
-        let response = makeRequest<CategoryResponse> url
-        response
+    let getRankings =
+        fun (cat: SpeedrunningCategory) ->
+            let url =
+                let categoryId = getCategoryId cat
+                sprintf "%s/leaderboards/sm64/category/%s" baseUrl categoryId
+
+            let response = makeRequest<CategoryResponse> url
+            response
+        |> SimpleCache.makeCache<SpeedrunningCategory, CategoryResponse>  30.0
+    

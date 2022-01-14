@@ -2,16 +2,9 @@ module SM64.Net.Views.Home
 
 open Feliz.Bulma.ViewEngine
 open Feliz.ViewEngine
+
 open SM64.Net
-    
-let bracketLink path (text: string) = Html.span [
-    Html.text " ["
-    Html.a [
-        prop.href path
-        prop.text text
-    ]
-    Html.text "]"
-]
+open SM64.Net.Utils
     
 let private contents = [
     Bulma.title.h1 "sm64.net"
@@ -96,6 +89,10 @@ let private contents = [
                         
                         Html.ul [
                             Html.li "[a trainer] to help you improve your speedrunning"
+                            Html.li [
+                                bracketLink SiteRoute.TwitchBot.Path "a  Twitch bot"
+                                Html.text "  you can use to provide helpful '!sm64 ___' commands"
+                            ]
                         ]
                     ]
                     
@@ -118,7 +115,7 @@ let private contents = [
                     ]
                     Html.text " and source code available "
                     Html.a [
-                        prop.href "https://github.com/stachudotnet/SM64.net"
+                        prop.href "https://github.com/stachudotnet/sm64.net"
                         prop.text "on GitHub"
                     ]
                     Html.text "."
@@ -127,9 +124,7 @@ let private contents = [
             
             Html.p [
                 bracketLink SiteRoute.Contribute.Path "Contributions"
-                Html.text " are welcome. Contact "
-                bracketLink "https://stachu.net" "me"
-                Html.text " or create a GitHub issue to connect."
+                Html.text " are welcome."
             ]
         ]
     ]

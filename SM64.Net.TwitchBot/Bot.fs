@@ -1,15 +1,27 @@
 module SM64.Net.TwitchBot.Bot
 
 open System
-open SM64.Speedrunning.Core
+
+open SM64.Speedrunning.Categories
 
 open TwitchLib.Client
 open TwitchLib.Client.Models
 open TwitchLib.Communication.Clients
 open TwitchLib.Communication.Models
-let channelsToJoin = ["stachudotnet"; "lvrkd"; "benji64"; "luuuwun"; "simply"]
 
-type BotConfig = { TwitchCredentials: TwitchCredentials }
+type ChannelConfiguration =
+    { Username: string
+      // todo: channel-specific settings, such as:
+      // - "I prefer short messages"
+      // - speedrun.com username/id
+      // - discord and other socials
+      // - sm64.net personal page
+      }
+    
+type BotConfig = {
+    TwitchCredentials: TwitchCredentials
+    ChannelsToJoin: ChannelConfiguration list
+}
 and TwitchCredentials = { UserName: string; OAuthToken: string }
 
 let friendlyTime (ts: TimeSpan) =
@@ -18,11 +30,11 @@ let friendlyTime (ts: TimeSpan) =
     let seconds = ts.Seconds
     
     match hours, minutes with
-    | 0, 0 -> sprintf "%i seconds" seconds
-    | 0, _ -> sprintf "%i minutes and %i seconds" minutes seconds
-    | _, _ -> sprintf "%ih %imin %is" hours minutes seconds
+    | 0, 0 -> $"{seconds} seconds"
+    | 0, _ -> $"{minutes} minutes and {seconds} seconds"
+    | _, _ -> $"{hours}h {minutes}min {seconds}s"
 
-let logEx (ex: Exception) = printfn "Ex: %s" ex.Message
+let logEx (ex: Exception) = printfn $"Ex: {ex.Message}"
 
 let handleMessage (client: TwitchClient) (evt: Events.OnMessageReceivedArgs) =
     let chatMessage = evt.ChatMessage
@@ -34,9 +46,9 @@ let handleMessage (client: TwitchClient) (evt: Events.OnMessageReceivedArgs) =
             let data = SpeedrunDotCom.Client.GetCategory.getRankings category
             let wr = data.runs |> Seq.find(fun r -> r.place = 1)
             let wrTime =  TimeSpan.FromSeconds(wr.run.times.primary_t) |> friendlyTime
-            let categoryName = categoryName category
+            let categoryName = getStandardName category
             
-            let outgoingMsg = sprintf "The WR for %s is %s" categoryName wrTime
+            let outgoingMsg = $"The WR for {categoryName} is {wrTime}"
             client.SendMessage(incomingChannel, outgoingMsg)
         with | ex -> logEx ex
     
@@ -49,10 +61,10 @@ let handleMessage (client: TwitchClient) (evt: Events.OnMessageReceivedArgs) =
     
     | "!sm64 people [simply] records" -> failwith "todo"
     
-    | "!sm64" -> client.SendMessage(incomingChannel, "WIP/Testing. Commands available: !sm64 records")
+    | "!sm64" -> client.SendMessage(incomingChannel, "A Twitch bot in progress - documentation available at sm64.net/twitch-bot")
     
     | msg when msg.StartsWith("!sm64 suggest") ->
-        client.SendMessage(incomingChannel, sprintf "Thanks for the suggestion, %s!" chatMessage.Username)
+        client.SendMessage(incomingChannel, $"Thanks for the suggestion, {chatMessage.Username}!")
         msg |> printfn "unhandled: %s"
     | _ -> ()
 
@@ -67,11 +79,14 @@ let startTwitchBot (config: BotConfig) =
     
     let client = TwitchClient(customClient)
     client.Initialize(credentials, "sm64dotnet")
+    client.OnError.Add(fun err -> printfn $"Uh oh: {err}")
+    client.OnLog.Add(fun err -> printfn $"Log: {err.Data}")
+    client.OnConnectionError.Add(fun _err -> printfn "connection error")
     client.OnMessageReceived.Add (fun msg -> handleMessage client msg)
     client.Connect()
     
-//    channelsToJoin
-//    |> Seq.iter(fun chName -> client.JoinChannel(chName, true))
+    config.ChannelsToJoin
+    |> Seq.iter(fun channel -> client.JoinChannel(channel.Username, true))
 
 
 // -- todos/notes --

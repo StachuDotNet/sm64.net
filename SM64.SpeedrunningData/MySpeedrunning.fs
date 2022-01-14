@@ -8,4 +8,3 @@ let standardIntro =
       CastleMovement FromStartToFrontDoor
       CastleMovement FromFrontDoorToBobDoor
       CastleMovement FromBobDoorToBobPainting ]
-

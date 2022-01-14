@@ -2,4 +2,5 @@ module SM64.Net.Views.BowserStage
 
 open Feliz.ViewEngine
 
-let view abbreviation = Html.text "Bowser stage"
+let view _abbreviation =
+    Html.text "Bowser stage"

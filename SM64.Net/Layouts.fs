@@ -3,25 +3,6 @@ module SM64.Net.Layouts
 open Feliz.Bulma.ViewEngine
 open Feliz.ViewEngine
 
-let baseLayout content =
-    Html.html [
-        prop.children [
-            Html.head [
-                Html.link [
-                    prop.href "https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.css"
-                    prop.rel "stylesheet"
-                ]
-            ]
-            Html.body [
-                Bulma.container [
-                    prop.children content
-                ]
-            ]
-        ]
-    ]
-    |> Render.htmlView
-     |> Giraffe.ResponseWriters.htmlString
-
 let navLink (text: string) path =
     Html.a [
         prop.classes ["navbar-item"]
@@ -112,6 +93,25 @@ let nav =
                        ]
                     ]
                 ]
+                Html.div [
+                    prop.classes ["navbar-item"; "has-dropdown"; "is-hoverable"]
+                    prop.children [
+                       Html.a [
+                           prop.classes ["navbar-link"]
+                           prop.text "Tools"
+                           prop.href SiteRoute.Tools.Path
+                       ]
+                       Html.div [
+                           prop.classes ["navbar-dropdown"]
+                           prop.children [
+                                navLink "Tools" SiteRoute.Tools.Path
+                                Html.hr [prop.classes ["navbar-divider"]]
+                                navLink "Usamune" SiteRoute.Usamune.Path
+                                navLink "Twitch Bot" SiteRoute.TwitchBot.Path
+                           ]
+                       ]
+                    ]
+                ]
             ]
         ]
       ]
@@ -129,7 +129,13 @@ let layout shouldDisplayNav content =
             ]
             Html.body [
                 Bulma.container [
-                    prop.children (if shouldDisplayNav then [nav; content] else [content]) 
+                    if shouldDisplayNav then
+                        yield! [
+                            nav
+                            Bulma.content [ prop.children [content] ]
+                        ]
+                    else
+                        yield! [content]
                 ]
             ]
         ]

@@ -1,6 +1,7 @@
 module SM64.Core.Recommendations
 
-open SM64.Speedrunning.Core
+open SM64.Speedrunning.Routes
+
 
 type Recommendation = string
 

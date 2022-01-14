@@ -44,6 +44,7 @@ type SiteRoute =
     
     | Tools
     | Usamune
+    | TwitchBot
     
     member this.Path =
         match this with
@@ -98,6 +99,7 @@ type SiteRoute =
         | Competitions -> "/speedrunning/competitions"
         | Challenges -> "/speedrunning/challenges"
 
-        // Tools (todo)
+        // Tools
         | Tools -> "/tools"
         | Usamune -> "/tools/usamune"
+        | TwitchBot -> "/tools/twitch-bot"

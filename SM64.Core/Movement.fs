@@ -3,15 +3,15 @@ module SM64.Core.Movement
 open System
 
 type MarioAction =
-    | SingleJump
-    | DoubleJump
-    | TripeJump
-    | GroundPound
-    | WallKick
-    | SideFlip
+    | SingleJump // single "a"
+    | DoubleJump // a subsequent "a" shortly after landing from a single jump
+    | TripleJump // a subsequent "a" shortly after landing from a double jump
+    | GroundPound  // "z" while suspended and in [some other state]
+    | WallKick // "a" as you're jumping and make contact w/ a wall
+    | SideFlip //  "a" while pivoting on the ground
     | Punch // single B
     | Kick // multiple B
-    | BackFlip
+    | BackFlip // "a" while crouched
     | GrabLedge
     | QuickLetGoOfLedge // A
     | SlowLetGoOfLedge // "up"
@@ -32,7 +32,7 @@ type MarioState =
     MarioMovement * MarioHealth
      // and some other stuff (e.g. "in the air?")
     
-// todo: experiment in defining a state graph (e.g. illegal to go from Dive to GroundPound
+// todo: experiment in defining a state graph (e.g. illegal to go from Dive to GroundPound)
 
 let isActionLegal (currentState: MarioState) (attemptedAction: MarioAction) =
     match currentState, attemptedAction with

@@ -1,6 +1,6 @@
 module SM64.Speedrunning.Speedrunner
 
-open SM64.Speedrunning.Core
+open SM64.Speedrunning.Routes
 
 type SpeedrunnerRoutes =
     { ZeroStarRoute: CategoryRoute option

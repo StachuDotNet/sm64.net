@@ -1,11 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Speedrunning.fs" />
+        <Compile Include="Categories.fs" />
+        <Compile Include="Routes.fs" />
         <Compile Include="Speedrunner.fs" />
         <Compile Include="Recommendations.fs" />
         <Compile Include="Competitions.fs" />
