@@ -15,7 +15,6 @@ let configureServices (services : IServiceCollection) =
 
 [<EntryPoint>]
 let main _ =
-    
     Host.CreateDefaultBuilder()
         .ConfigureWebHostDefaults(
             fun webHostBuilder ->
@@ -25,4 +24,5 @@ let main _ =
                     |> ignore)
         .Build()
         .Run()
+    
     0
