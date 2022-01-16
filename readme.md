@@ -1,8 +1,4 @@
-# sm64.net dev
-
-(I don't know how sm64.net wasn't taken!)
-
-## About
+# sm64.net
 
 This repo is a work-in-progress effort aimed towards:
 - capturing the full domain of Super Mario 64
@@ -24,24 +20,16 @@ I'm streaming the development of this repo [on Twitch](https://twitch.tv/stachud
 
 ## Contributing
 
-Because the codebase is pretty fresh, things are moving fast and maintaining GitHub issues is more effort than its worth right now.
 If you have time/energy to contribute, feel free to message below and we can chat about collaboration. (non-programmers, fear not!)  
 
-You can find the author
-on [Twitter](https://twitter.com/stachudotnet),
-[Twitch](https://twitch.tv/stachudotnet),
-or StachuDotNet#9760 on Discord.
-
-If you want to run this locally, you can:
-- `docker build -t sm64-twitch-bot-image -f Dockerfile .`
-- `docker create --name sm64-twitch-bot sm64-twitch-bot-image`
+You can find me on [Twitter](https://twitter.com/stachudotnet), [Twitch](https://twitch.tv/stachudotnet), or StachuDotNet#9760 on Discord.
+I'd be happy to pair on improvements, content-enhancements, etc.
 
 ## Tech Stuff
 
-now: F#, Expecto
-
-later:
-- Fable? Giraffe? Elmish?
-- autosplitter integration? speedrun.com integration? twitch integration?
+- backend: F# language and Giraffe web framework
+- frontend: Bulma for styling, and HTML powered by Giraffe on server side
+- Docker, AWS (ECR, ECS) for hosting, and GitHub Actions for CI/CD
+- Expecto for testing
 
 I develop in Jetbrains Rider, but VS Code or Visual Studio should also run things fine.
