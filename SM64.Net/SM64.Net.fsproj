@@ -34,6 +34,11 @@
         <Compile Include="Views\Core\BowserStage.fs" />
         <Compile Include="Views\Core\BowserStageReds.fs" />
         <Compile Include="Views\Core\AllStars.fs" />
+        <Compile Include="Views\Core\Stages\CloudStage.fs" />
+        <Compile Include="Views\Core\Stars\BowserRedsBitDW.fs" />
+        <Compile Include="Views\Core\Stars\BowserRedsBitFS.fs" />
+        <Compile Include="Views\Core\Stars\BowserRedsBitS.fs" />
+        <Folder Include="Views\Core\Coins" />
         <Compile Include="Views\Speedrunning\Speedrunning.fs" />
         <Compile Include="Views\Speedrunning\Records.fs" />
         <Compile Include="Views\Speedrunning\Rankings.fs" />
@@ -47,8 +52,10 @@
         <Compile Include="Views\Tools\Index.fs" />
         <Compile Include="Views\Tools\Usamune.fs" />
         <Compile Include="Views\Tools\TwitchBot.fs" />
+        <Compile Include="Views\Terms.fs" />
         <Compile Include="RouteChooser.fs" />
         <Compile Include="Program.fs" />
+        <Content Include="notes.md" />
     </ItemGroup>
 
     <ItemGroup>

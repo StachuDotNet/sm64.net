@@ -1,6 +1,9 @@
-module SM64.Net.Views.StandardCourses
+module SM64.Net.Views.StandardCourse
 
 open Feliz.ViewEngine
 
-let view =
-    Html.text "Here's a view for a specific 'standard course', out of the 15."
+let view (courseAbbreviation: string) = 
+    Html.div[
+      Html.h1 courseAbbreviation
+      Html.text "Here's a view for a specific 'standard course', out of the 15."
+    ]

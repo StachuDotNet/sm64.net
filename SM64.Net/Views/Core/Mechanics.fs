@@ -1,6 +1,10 @@
-module SM64.Net.Views.Plot
+module SM64.Net.Views.Mechanics
 
 open Feliz.ViewEngine
 
-let plotView =
-    Html.text "mario kills the big dino and saves some fruit"
+let view =
+    Html.rawText
+      """
+      <h2>Mechanics</h2>
+      <p>Tou can jump, dive, etc.</p>
+      """

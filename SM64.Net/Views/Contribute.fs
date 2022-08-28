@@ -4,7 +4,10 @@ open Feliz.ViewEngine
 
 let contributeView =
     Html.div [
-        Html.text "If you care about Super Mario 64 and would like to contribute in some way to this project, I can use help from a variety of different backgrounds:"
+        Html.text
+            "If you care about Super Mario 64 and would like to contribute in some way to this project,
+            I can use help from a variety of different backgrounds:"
+            
         Html.ul [
             Html.li "SM64 domain experts open to serious 1:1 interviews"
             Html.li "software development"

@@ -4,6 +4,8 @@ type Cap = Wing | Metal | Vanish
 
 type Key = BowserKey1 | UpstairsKey
 
+// Do we really need this nesting? hmm
+
 type Obtainable =
     | Cap of Cap
     | Key of Key

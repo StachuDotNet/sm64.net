@@ -41,7 +41,8 @@ type StandardCourseInfo =
       
       Abbreviation: string
       
-      // CoinCount: int //outstanding question; how to model the situations wherein coins are "repeatable"? 
+      // CoinCount: int //outstanding question; how to model the situations wherein coins are "repeatable"?
+      // TODO CoinCount could really be a function of all of the things that yield coins (rings, enemies, etc.)
       
       EntryRequirements: EntryRequirement list }
     

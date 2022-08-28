@@ -19,7 +19,7 @@ type Cutscene =
     | SingleDeath
 
 type TextSegment =
-    | OpeningText // a button, b button
+    | OpeningText
     | LakituBridge
 
 let getTextPanelCount textSegment =

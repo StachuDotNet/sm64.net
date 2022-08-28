@@ -5,6 +5,8 @@ open Giraffe
 open SM64.Net
 open SM64.Net.Layouts
 
+
+
 let routeChooser: (HttpFunc -> Microsoft.AspNetCore.Http.HttpContext -> HttpFuncResult) =
     choose
       [ route "/ping" >=> text "pong"
@@ -14,7 +16,7 @@ let routeChooser: (HttpFunc -> Microsoft.AspNetCore.Http.HttpContext -> HttpFunc
         
         // Game - Meta
         route  "/game" >=> (Views.Game.view|> layoutWithNav)
-        route  "/plot" >=> (Views.Plot.plotView |> layoutWithNav)
+        route  "/plot" >=> (Views.Plot.view |> layoutWithNav)
         route  "/mechanics" >=> (Views.Mechanics.view  |> layoutWithNav)
         route  "/castle" >=> (Views.Castle.view |> layoutWithNav)
         route  "/characters" >=> (Views.Characters.view |> layoutWithNav)

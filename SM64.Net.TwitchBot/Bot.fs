@@ -11,18 +11,18 @@ open TwitchLib.Communication.Models
 
 type ChannelConfiguration =
     { Username: string
-      // todo: channel-specific settings, such as:
+      // TODO: channel-specific settings, such as:
       // - "I prefer short messages"
       // - speedrun.com username/id
       // - discord and other socials
       // - sm64.net personal page
       }
-    
+
+type TwitchCredentials = { UserName: string; OAuthToken: string }
 type BotConfig = {
     TwitchCredentials: TwitchCredentials
     ChannelsToJoin: ChannelConfiguration list
 }
-and TwitchCredentials = { UserName: string; OAuthToken: string }
 
 let friendlyTime (ts: TimeSpan) =
     let hours = ts.Hours
@@ -59,7 +59,8 @@ let handleMessage (client: TwitchClient) (evt: Events.OnMessageReceivedArgs) =
     | "!sm64 wr 70" -> handleSingleLeaderboard SpeedrunningCategory.SeventyStar
     | "!sm64 wr 120" -> handleSingleLeaderboard SpeedrunningCategory.OneTwentyStar
     
-    | "!sm64 people [simply] records" -> failwith "todo"
+    | "!sm64 runner [simply] records" -> failwith "todo"
+    | "!sm64 speedrun.com" -> client.SendMessage(incomingChannel, "https://www.speedrun.com/sm64")
     
     | "!sm64" -> client.SendMessage(incomingChannel, "A Twitch bot in progress - documentation available at sm64.net/twitch-bot")
     
@@ -84,6 +85,8 @@ let startTwitchBot (config: BotConfig) =
     client.OnConnectionError.Add(fun _err -> printfn "connection error")
     client.OnMessageReceived.Add (fun msg -> handleMessage client msg)
     client.Connect()
+    
+    //client.
     
     config.ChannelsToJoin
     |> Seq.iter(fun channel -> client.JoinChannel(channel.Username, true))
@@ -114,3 +117,5 @@ let startTwitchBot (config: BotConfig) =
 //custom shortcuts for given channel
 //e.g. !sm64 pbs -> !sm64 people [simply] records
 //e.g. !sm64 pb 16 -> !sm64 people [simply] records [16]
+//
+// list non-N64 stuff too (emulator, Virtual Console, Switch, etc.)
